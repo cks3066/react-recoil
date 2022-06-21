@@ -1,7 +1,21 @@
-import './App.css';
+import './styles/App.css';
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
+import Search from './Search';
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <RecoilRoot>
+      <div className="App">
+        <Search />
+      </div>
+    </RecoilRoot>
+  );
 }
 
 export default App;
