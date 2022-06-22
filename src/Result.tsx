@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { pokemonDataState } from './recoil';
+import { pokemonDataAsyncState } from './recoil';
 
 function Result() {
-  const pokemonData = useRecoilValue(pokemonDataState);
+  const pokemonData = useRecoilValue(pokemonDataAsyncState);
 
   if (!pokemonData) {
     return <div>결과 없음</div>;
@@ -11,7 +11,8 @@ function Result() {
 
   return (
     <>
-      <img src={pokemonData.sprites.front_default} alt=""></img>
+      {/* {pokemonData.sprites.front_default !== undefined} &&
+      <img src={pokemonData.sprites.front_default} alt=""></img> */}
       <div>이름: {pokemonData.name}</div>
     </>
   );

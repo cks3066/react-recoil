@@ -1,23 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { pokemonDataState } from './recoil';
-import axios from 'axios';
+import { pokemonDataParams } from './recoil';
 
 function Search() {
-  const setPokemonData = useSetRecoilState(pokemonDataState);
+  const setPokemonDataParams = useSetRecoilState(pokemonDataParams);
+  const nameInput = useRef<HTMLInputElement>(null);
 
-  const searchPokemon = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { data } = await axios.get(
-      'https://pokeapi.co/api/v2/pokemon/pikachu'
-    );
-    setPokemonData(data);
-    console.log(data);
+    setPokemonDataParams(nameInput.current?.value);
   };
 
   return (
-    <form onSubmit={searchPokemon}>
-      <input type="text" />
+    <form onSubmit={handleFormSubmit}>
+      <input type="text" ref={nameInput} />
       <button type="submit">검색</button>
     </form>
   );
