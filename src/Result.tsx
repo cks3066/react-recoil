@@ -11,8 +11,7 @@ function Result() {
 
   return (
     <>
-      {/* {pokemonData.sprites.front_default !== undefined} &&
-      <img src={pokemonData.sprites.front_default} alt=""></img> */}
+      <img src={pokemonData.sprites.front_default} alt=""></img>
       <div>이름: {pokemonData.name}</div>
     </>
   );
