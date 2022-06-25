@@ -6,16 +6,18 @@ function Search() {
   const setPokemonDataParams = useSetRecoilState(pokemonDataParams);
   const nameInput = useRef<HTMLInputElement>(null);
 
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setPokemonDataParams(nameInput.current?.value);
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input type="text" ref={nameInput} />
-      <button type="submit">검색</button>
-    </form>
+    <>
+      <form onSubmit={handleFormSubmit}>
+        <input type="text" ref={nameInput} />
+        <button type="submit">검색</button>
+      </form>
+    </>
   );
 }
 
